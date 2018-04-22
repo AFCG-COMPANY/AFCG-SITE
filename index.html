@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AFCG</title>
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header class="page-header">
             <div class="page-header__logo">AFCG</div>
-            <nav class="main-nav  main-nav--closed  main-nav--nojs">
-                <button class="main-nav__toggle" type="button">Open</button>
-                <div class="main-nav__wrapper">
-                    <ul class="main-nav__items">
-                        <li class="main-nav__item  main-nav__item--active"><a>Description</a></li>
-                        <li class="main-nav__item"><a href="photo.html">Projects</a></li>
-                        <li class="main-nav__item"><a href="form.html">News</a></li>
-                        <li class="main-nav__item"><a href="form.html">Events</a></li>
-                        <li class="main-nav__item"><a href="form.html">Contact us</a></li>
+            <nav>
+                <input type="checkbox" id="nav" class="hidden"/>
+                <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
+                <div class="nav-container">
+                    <ul>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </nav>
