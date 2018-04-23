@@ -14,9 +14,11 @@ body {
 }
 
 .page-header__logo {
+  padding-left: 20px;
   margin-right: auto;
 }
 nav ul {
+  padding-right: 20px;
   float: right;
 }
 nav ul li {
@@ -38,7 +40,7 @@ nav ul li a:hover {
   color: white;
   text-decoration: none;
 }
-@media screen and (max-width: 560px) {
+@media screen and @mobile-widths-only {
   .nav-container {
     position: fixed;
     top: 0;
