@@ -1,16 +1,20 @@
 .slogan {
   background-color: white;
-  height: 520px;
+  height: 650px;
   align-items: center;
+  @media screen and @mobile-widths-only {
+    height: 750px;
+  }
 }
 
-.slogan__test {
 
-  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+.slogan__title {
+
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:200');
   font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
+  font-size: 45px;
   line-height: 1.2em;
-  style: medium;
+  style: Thin;
   margin-top: 0px;
   margin-bottom: 0px;
   color: black;
@@ -18,4 +22,8 @@
   display: block;
   top: 30%;
   left: 10%;
+}
+
+.slogan__text {
+  font-size: 25px;
 }
