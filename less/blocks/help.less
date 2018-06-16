@@ -1,0 +1,49 @@
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  /* create a small space when buttons wrap on 2 lines */
+  margin: 2px 0;
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 0px;
+  /* size comes from text & padding (no width/height) */
+  padding: 0.72em 1em;
+  /* make sure colors have enough contrast! */
+  color: #ffffff;
+  background-color: #23605d;
+  outline: none;
+  border: none;
+}
+.button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+.button:hover {
+  color: #23605d;
+  border-color: currentColor;
+  background-color: white;
+}
+input[type=email] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  font-size: 20px;
+}
+input[type=email]:focus {
+  border: 3px solid #555;
+}
