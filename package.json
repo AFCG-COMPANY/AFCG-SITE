@@ -1,0 +1,22 @@
+{
+  "name": "afcg-site",
+  "version": "1.0.0",
+  "description": "company website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFCG-COMPANY/AFCG-SITE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AFCG-COMPANY/AFCG-SITE/issues"
+  },
+  "homepage": "https://github.com/AFCG-COMPANY/AFCG-SITE#readme",
+  "devDependencies": {
+    "less": "^3.0.4"
+  }
+}
