@@ -52,14 +52,24 @@
         }
         .thumbnail {
             padding: 0 0 15px 0;
-            border: none;
-            border-radius: 0;
+
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
         }
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            margin-bottom: 10px;
+        .card{
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+
+            text-align: left;
         }
+        .card-body{
+            padding: 1.25rem;
+        }
+
         .carousel-control.right, .carousel-control.left {
             background-image: none;
             color: #20615C;
@@ -139,6 +149,9 @@
         .navbar-default .navbar-toggle {
             border-color: transparent;
             color: #fff !important;
+        }
+        #portfolio {
+            background-color: white;
         }
         footer .glyphicon {
             font-size: 20px;
@@ -275,12 +288,12 @@
     <div class="row text-center slideanim">
         <div class="col-sm-4">
             <!--
-            <div class="thumbnail">
+            <div class="thumbnail portfolio_card">
                 <p><strong>APOK ENGLISH BOT</strong></p>
                 <p>Read how we create learning platform for APOK company</p>
             </div>
             -->
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -289,14 +302,15 @@
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
+
         </div>
         <div class="col-sm-4">
-            <!--
+
             <div class="thumbnail">
                 <p><strong>D4U WEB PLATFORM</strong></p>
                 <p>Read how we developed the aggregator of logistics companies</p>
             </div>
-            -->
+            <!--
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -306,14 +320,15 @@
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
+            -->
         </div>
         <div class="col-sm-4">
-            <!--
+
             <div class="thumbnail">
                 <p><strong>ALL OUR PROJECTS</strong></p>
                 <p>Read here about all our projects</p>
             </div>
-            -->
+            <!--
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -323,6 +338,7 @@
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
+            -->
         </div>
     </div><br>
 
