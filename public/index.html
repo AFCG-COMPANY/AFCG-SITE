@@ -444,6 +444,27 @@
         });
     })
 </script>
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
+<script>
+    // Set the configuration for your app
+    // TODO: Replace with your project's config object
+    var config = {
+        apiKey: "\n" +
+        "AIzaSyAcEAAdTW3prO-AVHMJ4rGDlQgmrG3P_lE",
+        authDomain: "afcg-site.firebaseapp.com",
+        databaseURL: "https://afcg-site.firebaseio.com"
+    };
+    firebase.initializeApp(config);
+    firebase.database().ref('/').set({
+        username: '1',
+        email: '21'
+    });
 
+    // Get a reference to the database service
+    var database = firebase.database();
+</script>
 </body>
 </html>
