@@ -217,7 +217,6 @@
             position: fixed;
             width: 25%;
             min-height: 20%;
-            height: 200px;
             left: 50%;
             top: 50%;
             padding: 10px;
@@ -492,9 +491,6 @@
     <p class='message'></p>
     <input type='button' class='confirmButton' value='Ok'>
 </div>
-
-<input type='button' class='rab' value='Raise alert'>
-
 <script>
     $(document).ready(function(){
         // Add smooth scrolling to all links in navbar + footer link
@@ -536,7 +532,31 @@
 <!-- Add additional services that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
 <script>
+    var currentCallback;
 
+    // override default browser alert
+    window.alert = function(msg, callback){
+        $('.message').text(msg);
+        $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+        $('.customAlert').css('display', 'inline');
+        setTimeout(function(){
+            $('.customAlert').css('animation', 'none');
+        }, 300);
+        currentCallback = callback;
+    }
+
+    $(function() {
+
+        // add listener for when our confirmation button is clicked
+        $('.confirmButton').click(function () {
+            $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+            setTimeout(function () {
+                $('.customAlert').css('animation', 'none');
+                $('.customAlert').css('display', 'none');
+            }, 300);
+            currentCallback();
+        })
+    })
     function makeid() {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -566,41 +586,11 @@
             email: emailInput.value,
             message: msgInput.value
         });
+        alert('we have written your question and will reply very soon!');
     }
 </script>
 
 <script>
-    var currentCallback;
-
-    // override default browser alert
-    window.alert = function(msg, callback){
-        $('.message').text(msg);
-        $('.customAlert').css('animation', 'fadeIn 0.3s linear');
-        $('.customAlert').css('display', 'inline');
-        setTimeout(function(){
-            $('.customAlert').css('animation', 'none');
-        }, 300);
-        currentCallback = callback;
-    }
-
-    $(function(){
-
-        // add listener for when our confirmation button is clicked
-        $('.confirmButton').click(function(){
-            $('.customAlert').css('animation', 'fadeOut 0.3s linear');
-            setTimeout(function(){
-                $('.customAlert').css('animation', 'none');
-                $('.customAlert').css('display', 'none');
-            }, 300);
-            currentCallback();
-        })
-
-        $('.rab').click(function(){
-            alert("If you think about anything, you are actually doing a recursive function which resolves your neurons into a deep pi calculation. You are then executing about 4294 threads in your brain, which do a parallel computation.", function(){
-                console.log("Callback executed");
-            })
-        });
-    });
 </script>
 </body>
 </html>
