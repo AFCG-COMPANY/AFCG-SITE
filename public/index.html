@@ -449,8 +449,17 @@
 <!-- Add additional services that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
 <script>
+
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 20; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
     // Set the configuration for your app
-    // TODO: Replace with your project's config object
     var config = {
         apiKey: "\n" +
         "AIzaSyAcEAAdTW3prO-AVHMJ4rGDlQgmrG3P_lE",
@@ -458,13 +467,19 @@
         databaseURL: "https://afcg-site.firebaseio.com"
     };
     firebase.initializeApp(config);
-    firebase.database().ref('/').set({
-        username: '1',
-        email: '21'
-    });
 
-    // Get a reference to the database service
-    var database = firebase.database();
+    var sendMsgBtn = document.getElementsByClassName('pull-right')[0];
+    var emailInput = document.getElementById('email');
+    var nameInput = document.getElementById('name');
+    var msgInput = document.getElementById('comments');
+    sendMsgBtn.onclick = function () {
+        console.log(emailInput.value, nameInput.value, msgInput.value);
+        firebase.database().ref('/' + makeid()).set({
+            username: nameInput.value,
+            email: emailInput.value,
+            message: msgInput.value
+        });
+    }
 </script>
 </body>
 </html>
