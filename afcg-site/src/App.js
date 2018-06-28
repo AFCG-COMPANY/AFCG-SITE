@@ -1,21 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Link, Switch, BrowserRouter } from "react-router-dom";
+import asyncComponent from "./components/AsyncComponent";
 
-class App extends Component {
-  render() {
+const AsyncHome = asyncComponent(() => import('./components/Home'));
+const AsyncNotes = asyncComponent(() => import("./components/Notes"));
+
+export default function App() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+        <BrowserRouter>
+            <div>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/note'>Note</Link></li>
+                        </ul>
+                    </nav>
+                </header>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact
+                        component={AsyncHome}
+                    />
 
-export default App;
+                    <Route
+                        path="/note"
+                        exact
+                        component={AsyncNotes}
+                    />
+                </Switch>
+            </div>
+        </BrowserRouter>
+    )
+}
