@@ -29,13 +29,14 @@ export default class Home extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Email:
-                    <input type="email" value={this.state.value} onChange={this.handleEmail} />
+                    <input type="email" value={this.state.value} onChange={this.handleEmail}/>
                 </label>
                 <label>
                     Password:
-                    <input type="password" value={this.state.value} onChange={this.handlePassword} />
+                    <input type="password" value={this.state.value} onChange={this.handlePassword}/>
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit"/>
             </form>
         );
     }
+}
