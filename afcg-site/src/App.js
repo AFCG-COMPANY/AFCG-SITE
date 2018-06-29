@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Link, Switch, BrowserRouter } from "react-router-dom";
 import asyncComponent from "./components/AsyncComponent";
 
-const AsyncHome = asyncComponent(() => import('./components/Home'));
-const AsyncNotes = asyncComponent(() => import("./components/Notes"));
+const AsyncContact = asyncComponent(() => import('./components/Contact'));
+const AsyncHome = asyncComponent(() => import("./components/Home"));
 
 export default function App() {
     return (
@@ -27,7 +27,7 @@ export default function App() {
                     <Route
                         path="/note"
                         exact
-                        component={AsyncNotes}
+                        component={AsyncContact}
                     />
                 </Switch>
             </div>

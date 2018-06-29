@@ -306,17 +306,6 @@
         }
       }
     </style>
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
-    <script>
-        var config = {
-            apiKey: "\n" +
-            "AIzaSyAcEAAdTW3prO-AVHMJ4rGDlQgmrG3P_lE",
-            authDomain: "afcg-site.firebaseapp.com",
-            databaseURL: "https://afcg-site.firebaseio.com"
-        };
-        firebase.initializeApp(config);
-    </script>
   </head>
   <body>
     <noscript>
@@ -332,8 +321,7 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    -->  </body>
   <script>
       $(document).ready(function(){
           // Add smooth scrolling to all links in navbar + footer link
@@ -374,62 +362,4 @@
   <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
   <!-- Add additional services that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
-  <script>
-      var currentCallback;
-
-      // override default browser alert
-      window.alert = function(msg, callback){
-          $('.message').text(msg);
-          $('.customAlert').css('animation', 'fadeIn 0.3s linear');
-          $('.customAlert').css('display', 'inline');
-          setTimeout(function(){
-              $('.customAlert').css('animation', 'none');
-          }, 300);
-          currentCallback = callback;
-      }
-
-      $(function() {
-
-          // add listener for when our confirmation button is clicked
-          $('.confirmButton').click(function () {
-              $('.customAlert').css('animation', 'fadeOut 0.3s linear');
-              setTimeout(function () {
-                  $('.customAlert').css('animation', 'none');
-                  $('.customAlert').css('display', 'none');
-              }, 300);
-              currentCallback();
-          })
-      })
-      function makeid() {
-          var text = "";
-          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-          for (var i = 0; i < 20; i++)
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-          return text;
-      }
-      // Set the configuration for your app
-      var config = {
-          apiKey: "\n" +
-          "AIzaSyAcEAAdTW3prO-AVHMJ4rGDlQgmrG3P_lE",
-          authDomain: "afcg-site.firebaseapp.com",
-          databaseURL: "https://afcg-site.firebaseio.com"
-      };
-      firebase.initializeApp(config);
-
-      var sendMsgBtn = document.getElementsByClassName('pull-right')[0];
-      var emailInput = document.getElementById('email');
-      var nameInput = document.getElementById('name');
-      var msgInput = document.getElementById('comments');
-      sendMsgBtn.onclick = function () {
-          console.log(emailInput.value, nameInput.value, msgInput.value);
-          firebase.database().ref('/' + makeid()).set({
-              username: nameInput.value,
-              email: emailInput.value,
-              message: msgInput.value
-          });
-          alert('We have written your question and will reply very soon!');
-      }
-  </script>
 </html>
