@@ -1,10 +1,33 @@
 import React from 'react';
-import ScriptTag from 'react-script-tag';
+import firebase from 'firebase';
 
 export default function Notes() {
 
     function handleClick(e) {
+        function makeid() {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (var i = 0; i < 20; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        }
+
         e.preventDefault();
+        var config = {
+            apiKey: "\n" +
+            "AIzaSyAcEAAdTW3prO-AVHMJ4rGDlQgmrG3P_lE",
+            authDomain: "afcg-site.firebaseapp.com",
+            databaseURL: "https://afcg-site.firebaseio.com"
+        };
+        var fire = firebase.initializeApp(config);
+        firebase.database().ref('/' + makeid()).set({
+            username: window['name'],
+            email: window['email'],
+            message: window['message']
+        });
+        console.log(window['name'], window['email'], window['message'])
         alert('The link was clicked.');
         console.log('The link was clicked.');
     }
@@ -180,15 +203,15 @@ export default function Notes() {
                 <div className="col-sm-7 slideanim">
                     <div className="row">
                         <div className="col-sm-6 form-group">
-                            <input className="form-control" id="name" name="name" placeholder="Name" type="text"
+                            <input className="form-control" id="name" name="name" placeholder="Name" type="text" onChange={(evt) => { window['name'] = evt.target.value; }}
                                    required></input>
                         </div>
                         <div className="col-sm-6 form-group">
-                            <input className="form-control" id="email" name="email" placeholder="Email" type="email"
+                            <input className="form-control" id="email" name="email" placeholder="Email" type="email" onChange={(evt) => { window['email'] = evt.target.value; }}
                                    required></input>
                         </div>
                     </div>
-                    <textarea className="form-control" id="comments" name="comments" placeholder="Comment"
+                    <textarea className="form-control" id="comments" name="comments" placeholder="Comment" onChange={(evt) => { window['message'] = evt.target.value; }}
                               rows="5"></textarea><br></br>
                     <div className="row">
                         <div className="col-sm-12 form-group">

@@ -18,5 +18,8 @@
   "homepage": "https://github.com/AFCG-COMPANY/AFCG-SITE#readme",
   "devDependencies": {
     "less": "^3.0.4"
+  },
+  "dependencies": {
+    "react-script-tag": "^1.1.2"
   }
 }
