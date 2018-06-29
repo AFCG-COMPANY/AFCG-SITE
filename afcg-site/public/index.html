@@ -231,7 +231,7 @@
         display: none;
         position: fixed;
         width: 25%;
-        min-height: 20%;
+        min-height: 10%;
         left: 50%;
         top: 50%;
         padding: 10px;
@@ -362,5 +362,36 @@
   <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
   <!-- Add additional services that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
-  <script>window['alert'] = true;</script>
+  <script>
+      var currentCallback;
+
+      // override default browser alert
+      window.alert = function(msg, callback){
+          $('.message').text(msg);
+          $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+          $('.customAlert').css('display', 'inline');
+          setTimeout(function(){
+              $('.customAlert').css('animation', 'none');
+          }, 300);
+          setTimeout(function(){
+              $('.customAlert').css('animation', 'none');
+              $('.customAlert').css('display', 'none');
+          }, 3500);
+
+          currentCallback = callback;
+      }
+
+      $(function() {
+
+          // add listener for when our confirmation button is clicked
+          $('.confirmButton').click(function () {
+              $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+              setTimeout(function () {
+                  $('.customAlert').css('animation', 'none');
+                  $('.customAlert').css('display', 'none');
+              }, 300);
+              currentCallback();
+          })
+      })
+  </script>
 </html>

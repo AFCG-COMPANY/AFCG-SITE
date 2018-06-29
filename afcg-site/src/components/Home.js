@@ -1,8 +1,8 @@
 import React from 'react';
 import firebase from 'firebase';
-import { Alert } from "react-bs-notifier";
 
 export default function Home() {
+
 
     function handleClick(e) {
         function makeid() {
@@ -28,13 +28,14 @@ export default function Home() {
             email: window['email'],
             message: window['message']
         });
-        console.log(window['name'], window['email'], window['message'])
-        alert('The link was clicked.');
+        console.log(window['name'], window['email'], window['message']);
+        alert('We have written your question and will reply very soon!');
         console.log('The link was clicked.');
     }
 
-    return (<div>
-        <nav className="navbar navbar-default navbar-fixed-top">
+    return (
+        <div>
+            <nav className="navbar navbar-default navbar-fixed-top">
             <div className="container">
                 <div className="navbar-header">
                     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -228,6 +229,8 @@ export default function Home() {
             </a>
             <p>Created By <a href="https://www.afcg-company.ru" title="Visit afcg-company">www.afcg-company.ru</a></p>
         </footer>
-        { window['alert'] ? <Alert type="danger" headline="Error!"> Holy cow, man!</Alert> : null }
+            <div className='customAlert'>
+                <p className='message'></p>
+            </div>
     </div>);
 }

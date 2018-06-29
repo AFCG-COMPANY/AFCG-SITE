@@ -9,14 +9,6 @@ export default function App() {
     return (
         <BrowserRouter>
             <div>
-                <header>
-                    <nav>
-                        <ul>
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/note'>Note</Link></li>
-                        </ul>
-                    </nav>
-                </header>
                 <Switch>
                     <Route
                         path="/"
